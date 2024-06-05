@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>alumnos add</h1>
+
+    <button type="button">
+        <a href="% url 'alumnos_list' %">agregar</a>
+    </button>
+    <div id="idMensajes">
+        {% if alumnos %}
+            <th>Rut</th>
+            <th>Apellido</th>
+            <th>Eliminar</th>
+            <th>Nombre</th>
+            <th>Modificar</th>
+                {% for x in alumnos %}
+                <tr>
+                    <td>{{x.Rut}}</td>
+                    <td>{{x.Nombre}}</td>
+                    <td>{{x.Apellido}}</td>
+                    <td><a href="% url 'alumnos_del' pk=x.Rut %">Eliminar</a></td>
+                    <td><a href="% url 'alumnod_findEdit' pk=x.Rut %">Modificar</a></td>
+                </tr>
+                {% endfor %}
+        {% endif %}   
+             
+    </div>
+</body>
+</html>
